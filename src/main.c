@@ -8,18 +8,16 @@ int	main(int argc, char **argv)
 {
 	t_list	*lst_a;
 	t_list	*lst_b;
-	//t_list	*tmp; //borrar in the future
-	//t_list	*tmp2;
+	t_list	*tmp; //borrar in the future
+	t_list	*tmp2;
 	int max;
 	int *n;
-	int i;
 
 	//atexit(leak);
 	if (argc < 2)
 		return (0);
 	lst_a = NULL;
 	lst_b = NULL;
-	i = -1;
 	max = 0;
 	n = strtonum(stringerror(parse(argv, argc)));
 	while (n[max] != -1)
@@ -29,7 +27,7 @@ int	main(int argc, char **argv)
 		exit(1);
 	sort_list(&lst_a, &lst_b, max);	
 	//ESTE WHILE GENERA UN LEAK POR CADA ITERACION
-	/*tmp = lst_a;
+	tmp = lst_a;
 	tmp2 = lst_b;	
 	while (tmp)
 	{
@@ -40,7 +38,7 @@ int	main(int argc, char **argv)
 	{
 		printf("STACK: B %d\n", tmp2->num);
 		tmp2 = tmp2->next;
-	}*/
+	}
 	//printf(" \nMAX %d", max);
 	free(n);
 	ft_lstclear(&lst_a);

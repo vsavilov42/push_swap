@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:53:01 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/04 20:20:54 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/06 19:30:07 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ void	sort_list(t_list **lst_a, t_list **lst_b, int max)
 	if (max == 5)
 		sort_five(lst_a, lst_b);
 	if (max > 5)
-		sort_chunks(lst_a, lst_b, max);
+		sort_chunks(lst_a, lst_b);
 }
 
 int	*two_littles(t_list **lst)
 {
 	t_list	*tmp;
 	int		*n;
-	int 	i;
 
-	i = 0;
 	tmp = *lst;
 	n = malloc(sizeof(int) * 2);
 	n[0] = 2147483647;

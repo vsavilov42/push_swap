@@ -1,7 +1,10 @@
 #include "../include/push_swap.h"
 
-void	sort_chunks(t_list **lst_a, t_list **lst_b, int max)
+void	sort_chunks(t_list **lst_a, t_list **lst_b)
 {
+	int max;
+
+	max = ft_lstsize(*lst_a);
 	sort_chunks_a_to_b(lst_a, lst_b, max);
 	sort_five(lst_a, lst_b);
 	sort_chunks_b_to_a(lst_a, lst_b, max);
@@ -12,7 +15,8 @@ void	sort_chunks_a_to_b(t_list **lst_a, t_list **lst_b, int m)
 	t_chunk	ck;
 	t_list	*tmp;
 
-	ck = (t_chunk){0, m - 5, m, (m - 5) / 7 + 22, m - ((m - 5) / 7 + 22)};
+	ck = (t_chunk){0, m, m, (m - 5) / 7 + 22, m - ((m - 5) / 7 + 22)};
+	printf("NUM--> %d\n", ck.num);
 	while (m > 5)
 	{
 		ck.tpa = 0;
@@ -29,14 +33,15 @@ void	sort_chunks_a_to_b(t_list **lst_a, t_list **lst_b, int m)
 			ck.minichunk -= ck.chunksize;
 			ck.chunksize += ck.chunksize;
 		}
-		sort_chunks_rotate_list_a(lst_a, lst_b, m, ck.tpa);
+		printf("AAA: %d\n", (*lst_a)->num);
+		sort_chunks_rotate_list_a(lst_a, m, ck.tpa);
 		pb(lst_a, lst_b);
+		printf("BBB: %d\n", (*lst_b)->num);
 		m--;
 	}
 }
 
-void	sort_chunks_rotate_list_a(t_list **lst_a,
-			t_list **lst_b, int max, int tpa)
+void	sort_chunks_rotate_list_a(t_list **lst_a,  int max, int tpa)
 {
 	if (max > 5)
 	{
@@ -44,15 +49,16 @@ void	sort_chunks_rotate_list_a(t_list **lst_a,
 		{
 			while (tpa > 0)
 			{
+			printf("LIST A: %d\n", (*lst_a)->num);
 				ra(lst_a, 1);
 				tpa--;
 			}
 		}
 		else
 		{
-			while (tpa != 0)
+			while (tpa > 0)
 			{
-				if ((*lst_b)->num == max - 6)
+				if ((*lst_a)->num == max)
 					break ;
 				rra(lst_a, 1);
 				tpa--;

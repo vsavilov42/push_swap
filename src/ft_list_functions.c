@@ -3,11 +3,9 @@
 t_list	*intolist(int *n, t_list *lst)
 {
 	t_form	varl;
-	t_head	head;
 
 	varl.i = 0;
 	lst = ft_lstnew(n[varl.i]);
-	head.head_a = &lst;
 	while (n[++varl.i] != -1)
 	{
 		ft_lstadd_back(&lst, ft_lstnew(n[varl.i]));
