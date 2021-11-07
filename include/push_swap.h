@@ -19,9 +19,7 @@ typedef	struct s_chunks
 {
 	int	tpa;
 	int num;
-	int	maxtmp;
 	int chunksize;
-	int minichunk;
 } t_chunk;
 
 typedef struct s_head
@@ -71,8 +69,8 @@ void	sort_four(t_list **lst_a, t_list **lst_b);
 void	sort_five(t_list **lst_a, t_list **lst_b);
 void	sort_chunks(t_list **lst_a, t_list **lst_b);
 void	sort_chunks_a_to_b(t_list **lst_a, t_list **lst_b, int max);
-void	sort_chunks_rotate_list_a(t_list **lst_a, int max, int tpa);
-void	sort_chunks_b_to_a(t_list **lst_a, t_list **lst_b, int max);
+void	sort_chunks_rotate_list_a(t_list **lst_a, int max, int tpa, int chunk);
+void	sort_chunks_b_to_a(t_list **lst_a, t_list **lst_b);
 void	sort_list(t_list **lst_a, t_list **lst_b, int max);
 int		sorted(t_list **lst);
 
