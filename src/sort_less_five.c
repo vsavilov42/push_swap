@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:53:01 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/06 19:30:07 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/07 20:24:05 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sort_five(t_list **lst_a, t_list **lst_b)
 	
 	num = two_littles(lst_a);
 	numb = 2;
-	while (numb != 0)
+	while (numb > 0)
 	{
 		if ((*lst_a)->num == num[0] || (*lst_a)->num == num[1])
 		{
@@ -68,7 +68,7 @@ void	sort_five(t_list **lst_a, t_list **lst_b)
 		if (numb > 0)
 			rra(lst_a, 1);
 	}
-	if ((*lst_b)->num < (*lst_b)->next->num)
+	if (ft_lstsize(*lst_a) == 3 && (*lst_b)->num < (*lst_b)->next->num)
 		sb(lst_b, 1);
 	sort_three(lst_a);
 	pa(lst_a, lst_b);

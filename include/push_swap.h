@@ -20,6 +20,7 @@ typedef	struct s_chunks
 	int	tpa;
 	int num;
 	int chunksize;
+	int	halfchunk;
 } t_chunk;
 
 typedef struct s_head
@@ -52,6 +53,8 @@ int		ft_atoi(const char *str);
 int		*maping(int *n, int nnum);
 
 //list functions
+
+void	list(t_list **lst_a, t_list **lst_b);
 
 t_list	*intolist(int *n, t_list *lst);
 t_list	*ft_lstnew(int content);
