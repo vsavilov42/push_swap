@@ -19,6 +19,7 @@ typedef	struct s_chunks
 {
 	int	tpa;
 	int num;
+	int check;
 	int chunksize;
 	int	halfchunk;
 } t_chunk;

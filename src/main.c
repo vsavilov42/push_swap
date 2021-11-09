@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	if (fix_troll(&lst_a) == 0)
 		exit(1);
 	sort_list(&lst_a, &lst_b, max);	
-//	list(&lst_a, &lst_b);
+	//list(&lst_a, &lst_b);
 	free(n);
 	ft_lstclear(&lst_a);
 	free(lst_a);
