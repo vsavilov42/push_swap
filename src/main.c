@@ -2,7 +2,7 @@
 
 void	leak(void)
 {
-	system("leaks a.out");
+	system("leaks push_swap");
 }
 int	main(int argc, char **argv)
 {

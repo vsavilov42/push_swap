@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:53:01 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/07 20:24:05 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/10 18:16:59 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,19 @@ void	sort_list(t_list **lst_a, t_list **lst_b, int max)
 		sort_four(lst_a, lst_b);
 	if (max == 5)
 		sort_five(lst_a, lst_b);
-	if (max > 5)
+	if (max > 5 && max < 10)
+		sort_less_ten(lst_a, lst_b);
+	if (max > 9 && max < 500)
 		sort_chunks(lst_a, lst_b);
-}
-
-int	*two_littles(t_list **lst)
-{
-	t_list	*tmp;
-	int		*n;
-
-	tmp = *lst;
-	n = malloc(sizeof(int) * 2);
-	n[0] = 2147483647;
-	n[1] = n[0];
-	while (tmp)
-	{
-		if (tmp->num < n[0])
-			n[0] = tmp->num;
-		tmp = tmp->next;
-	}
-	tmp = *lst;
-	while (tmp)
-	{
-		if (tmp->num < n[1] && tmp->num != n[0])
-			n[1] = tmp->num;
-		tmp = tmp->next;
-	}
-	return (n);
+	if (max > 499)
+		sort_big_chunks(lst_a, lst_b, max);
 }
 
 void	sort_five(t_list **lst_a, t_list **lst_b)
 {
 	int	numb;
-	int *num;
-	
+	int	*num;
+
 	num = two_littles(lst_a);
 	numb = 2;
 	while (numb > 0)

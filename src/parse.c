@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 18:22:20 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/10 18:22:50 by vsavilov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 char	*parse(char **arg, int argc)
 {
-	int argnum;
-	char *allnum;
-	char *tmp;
+	int		argnum;
+	char	*allnum;
+	char	*tmp;
 
 	argnum = 0;
 	allnum = ft_strdup(" ");

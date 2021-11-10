@@ -11,6 +11,7 @@ typedef struct s_form
 	int i;
 	int j;
 	int k;
+	int l;
 	int nwords;
 	int *n;
 } t_form;
@@ -68,15 +69,24 @@ int		ft_lstsize(t_list *lst);
 
 int		fix_troll(t_list **lst_a);
 void	sort_two(t_list **lst);
+int		*two_littles(t_list	**lst);
 void	sort_three(t_list **lst);
 void	sort_four(t_list **lst_a, t_list **lst_b);
 void	sort_five(t_list **lst_a, t_list **lst_b);
+void	sort_less_ten(t_list **lst_a, t_list **lst_b);
 void	sort_chunks(t_list **lst_a, t_list **lst_b);
+void	sort_big_chunks(t_list **lst_a, t_list **lst_b, int m);
 void	sort_chunks_a_to_b(t_list **lst_a, t_list **lst_b, int max);
 void	sort_chunks_rotate_list_a(t_list **lst_a, int max, int tpa, int chunk);
 void	sort_chunks_b_to_a(t_list **lst_a, t_list **lst_b);
 void	sort_list(t_list **lst_a, t_list **lst_b, int max);
 int		sorted(t_list **lst);
+
+//junk chunks functions
+
+int	b_to_a_rb(t_list **lst_a, t_list **lst_b, int num, int check);
+int	b_to_a_rrb(t_list **lst_a, t_list **lst_b, int num, int check);
+int where_is_num(t_list **lst, int num, int tpa);
 
 //move functions
 

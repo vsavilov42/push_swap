@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_rules_s.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 18:08:35 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/10 18:08:36 by vsavilov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	sa(t_list **lst, int check)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
-	
+
 	if (!(*lst)->next)
 		return ;
 	tmp2 = *lst;
@@ -18,8 +30,8 @@ void	sa(t_list **lst, int check)
 
 void	sb(t_list **lst, int check)
 {
-	t_list *tmp;
-	t_list *tmp2;
+	t_list	*tmp;
+	t_list	*tmp2;
 
 	if (!(*lst)->next)
 		return ;

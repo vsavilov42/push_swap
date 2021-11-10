@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils_2.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 18:17:34 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/10 18:17:46 by vsavilov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-int errormsg()
+int	errormsg(void)
 {
 	write(2, "Error\n", 6);
 	return (1);
@@ -31,4 +43,45 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (negative * i);
+}
+
+void	sort_chunks_rotate_list_a(t_list **lst_a, int max, int tpa, int chunk)
+{
+	if (tpa <= (max / 2))
+		while (tpa > 0 && tpa--)
+			ra(lst_a, 1);
+	else
+	{
+		while (max - tpa > 0 && tpa--)
+		{
+			if ((*lst_a)->num <= chunk)
+				break ;
+			rra(lst_a, 1);
+		}
+	}
+}
+
+int	*two_littles(t_list **lst)
+{
+	t_list	*tmp;
+	int		*n;
+
+	tmp = *lst;
+	n = malloc(sizeof(int) * 2);
+	n[0] = 2147483647;
+	n[1] = n[0];
+	while (tmp)
+	{
+		if (tmp->num < n[0])
+			n[0] = tmp->num;
+		tmp = tmp->next;
+	}
+	tmp = *lst;
+	while (tmp)
+	{
+		if (tmp->num < n[1] && tmp->num != n[0])
+			n[1] = tmp->num;
+		tmp = tmp->next;
+	}
+	return (n);
 }

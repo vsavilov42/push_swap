@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:10:04 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/06 18:40:05 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/10 18:21:55 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*stringerror(char *s)
 				|| (s[i] == '-' && s[i + 1] >= '0'
 					&& s[i + 1] <= '9' && s[i - 1] == ' ')
 				|| (s[i] == '+' && s[i + 1] >= '0'
-					&& s[i + 1] <= '9' && s[i - 1] == ' ')))	
+					&& s[i + 1] <= '9' && s[i - 1] == ' ')))
 			exit(errormsg());
 	}
 	return (s);
@@ -34,7 +34,7 @@ int	*strtonum(char *str)
 	t_form	ssa;
 	char	**num;
 
-	ssa = (t_form){-1, -1, -1, 0, NULL};
+	ssa = (t_form){-1, -1, -1, -1, 0, NULL};
 	num = ft_split(str, ' ');
 	while (num[++ssa.k])
 		ssa.nwords++;
@@ -46,11 +46,10 @@ int	*strtonum(char *str)
 		ssa.n[ssa.i] = ft_atoi(num[ssa.i]);
 		free(num[ssa.i]);
 	}
-	ssa.i = -1;
-	while (++ssa.i < ssa.nwords)
+	while (++ssa.l < ssa.nwords)
 	{
 		while (++ssa.j < ssa.nwords)
-			if (ssa.n[ssa.i] == ssa.n[ssa.j] && ssa.i != ssa.j)
+			if (ssa.n[ssa.l] == ssa.n[ssa.j] && ssa.l != ssa.j)
 				exit(errormsg());
 		ssa.j = -1;
 	}

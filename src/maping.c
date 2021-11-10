@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   maping.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 18:23:00 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/10 18:24:40 by vsavilov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-int *maping(int *n, int nnum)
+int	*maping(int *n, int nnum)
 {
-	t_form map;
-	int num;
-    int *aux;
+	t_form	map;
+	int		num;
+	int		*aux;
 
-    aux = malloc(sizeof(int) * (nnum + 1));
-    if (!aux)
-        return (NULL);
-    map.i = -1;
+	aux = malloc(sizeof(int) * (nnum + 1));
+	if (!aux)
+		return (NULL);
+	map.i = -1;
 	while (++map.i < nnum)
 	{
 		num = 0;

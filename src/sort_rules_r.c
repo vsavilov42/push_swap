@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_rules_r.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 18:09:19 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/10 18:09:20 by vsavilov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	ra(t_list **lst, int check)
@@ -7,7 +19,7 @@ void	ra(t_list **lst, int check)
 	t_list	*last;
 
 	if (!(*lst)->next)
-		return ;	
+		return ;
 	first = *lst;
 	last = *lst;
 	second = (*lst)->next;
@@ -27,7 +39,7 @@ void	rb(t_list **lst, int check)
 	t_list	*last;
 
 	if (!(*lst)->next)
-		return ;	
+		return ;
 	first = *lst;
 	last = *lst;
 	second = (*lst)->next;
