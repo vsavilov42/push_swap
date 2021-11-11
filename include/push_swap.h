@@ -76,6 +76,7 @@ void	sort_five(t_list **lst_a, t_list **lst_b);
 void	sort_less_ten(t_list **lst_a, t_list **lst_b);
 void	sort_chunks(t_list **lst_a, t_list **lst_b);
 void	sort_big_chunks(t_list **lst_a, t_list **lst_b, int m);
+void	sort_big_chunks_b_to_a(t_list **lst_a, t_list **lst_b);
 void	sort_chunks_a_to_b(t_list **lst_a, t_list **lst_b, int max);
 void	sort_chunks_rotate_list_a(t_list **lst_a, int max, int tpa, int chunk);
 void	sort_chunks_b_to_a(t_list **lst_a, t_list **lst_b);

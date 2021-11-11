@@ -6,7 +6,7 @@
 #    By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 19:18:22 by vsavilov          #+#    #+#              #
-#    Updated: 2021/11/10 19:03:54 by vsavilov         ###   ########.fr        #
+#    Updated: 2021/11/11 17:31:50 by vsavilov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS_NAME = ft_list_functions.c \
 			push_swap_utils.c \
 			push_swap_utils_2.c \
 			sort_chunks.c \
+			sort_big_chunks.c \
 			junk_chunks.c \
 			sort_less_five.c \
 			sort_rules_pa.c \
