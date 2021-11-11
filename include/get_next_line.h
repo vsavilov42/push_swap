@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 18:22:20 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/11 18:38:05 by vsavilov         ###   ########.fr       */
+/*   Created: 2021/10/04 10:01:00 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/11 19:58:58 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*parse(char **arg, int argc)
-{
-	int		argnum;
-	char	*allnum;
-	char	*tmp;
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
-	argnum = 0;
-	allnum = ft_strdup(" ");
-	while (++argnum < argc)
-	{
-		tmp = ft_strjoin(allnum, arg[argnum]);
-		free(allnum);
-		allnum = tmp;
-		tmp = ft_strjoin(allnum, " ");
-		free(allnum);
-		allnum = tmp;
-	}
-	return (allnum);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+char	*get_current_line(char **str);
+#endif

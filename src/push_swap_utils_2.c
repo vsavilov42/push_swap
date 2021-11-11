@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:17:34 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/11 16:11:43 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/11 20:11:29 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,30 @@ int	*two_littles(t_list **lst)
 		tmp = tmp->next;
 	}
 	return (n);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t			j;
+	char			*sresult;
+	unsigned int	k;
+
+	if (s == NULL)
+		return (NULL);
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	sresult = (char *)malloc(sizeof(char) * (len + 1));
+	if (sresult == NULL)
+		return (NULL);
+	k = ft_strlen(s);
+	j = 0;
+	if (start >= k)
+	{
+		*sresult = '\0';
+		return (sresult);
+	}
+	while (j < len)
+		sresult [j++] = s [start++];
+	sresult[j] = '\0';
+	return (sresult);
 }

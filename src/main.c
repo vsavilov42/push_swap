@@ -10,10 +10,15 @@ int	main(int argc, char **argv)
 	t_list	*lst_b;
 	int max;
 	int *n;
+	int i;
 
+	i = 0;
 	//atexit(leak);
 	if (argc < 2)
 		return (0);
+
+	if (argv[++i][0] == '\0')
+		exit(errormsg());
 	lst_a = NULL;
 	lst_b = NULL;
 	max = 0;

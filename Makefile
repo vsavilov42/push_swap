@@ -6,7 +6,7 @@
 #    By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 19:18:22 by vsavilov          #+#    #+#              #
-#    Updated: 2021/11/11 17:31:50 by vsavilov         ###   ########.fr        #
+#    Updated: 2021/11/11 20:53:58 by vsavilov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,15 @@ SRCS_NAME = ft_list_functions.c \
 			sort_rules_rr.c \
 			sort_rules_s.c
 
+SRCS_BONUS = checker.c
+
+NAME_BONUS = push_swap_checker
+
+BONUS_SRCS = $(addprefix $(BONUSDIR)/, $(SRCS_BONUS))
+
+OBJS_BONUS_NAME = $(SRCS_BONUS:%.c=%.o)
+
+OBJS_BONUS = $(addprefix $(BONUSOBJDIR)/, $(OBJS_BONUS_NAME))
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -36,6 +45,8 @@ CC = gcc
 SRCDIR = src
 
 OBJDIR = obj
+
+BONUSDIR = checker
 
 NAME = push_swap
 
@@ -47,13 +58,16 @@ OBJS = $(addprefix $(OBJDIR)/, $(OBJS_NAME))
 
 .PHONY: all clean fclean re bonus
 
-all: $(NAME)
+all: $(NAME) $(BONUS)
 
 .o:.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+
+$(NAME_BONUS): $(OBJS_BONUS)
+	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS_NAME)
 
 debug: CFLAGS += -fsanitize=address -g3
 debug: $(NAME)
@@ -63,6 +77,12 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 
 $(OBJDIR):
 		@mkdir -p $(OBJDIR) 2> /dev/null
+
+$(BONUSOBJDIR)/%.o: $(SRCDIR)/%.c | $(BONUSOBJDIR)
+		@$(CC) $(CFLAGS) -I. -c $< -o $@
+
+$(BONUSOBJDIR):
+		@mkdir -p $(BONUSOBJDIR) 2> /dev/null
 
 clean:
 	rm -rf $(OBJDIR)

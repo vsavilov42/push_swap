@@ -46,6 +46,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		errormsg();
 char	*stringerror(char *str);
 int		countword(char const *s, char c);
@@ -53,6 +54,7 @@ char	**ft_split(char const *s, char c);
 int		*strtonum(char *str);
 int		ft_atoi(const char *str);
 int		*maping(int *n, int nnum);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 //list functions
 
@@ -102,5 +104,10 @@ void	rr(t_list **lst, t_list **lst_b);
 void	rra(t_list **lst, int check);
 void	rrb(t_list **lst, int check);
 void	rrr(t_list **lst_a, t_list **lst_b);
+
+//bonus functions
+
+void	read_gnl(t_list **lst_a, t_list **lst_b);
+void	do_instruct(t_list **lst_a, t_list **lst_b, char *inst);
 
 #endif
