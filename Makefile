@@ -6,7 +6,7 @@
 #    By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 19:18:22 by vsavilov          #+#    #+#              #
-#    Updated: 2021/11/15 12:22:58 by vsavilov         ###   ########.fr        #
+#    Updated: 2021/11/15 12:54:19 by vsavilov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,19 +69,14 @@ NAME = push_swap
 
 BONUS = checker
 
-###	Objects dir	###
+### Rules can be executed ###
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
-		@$(CC) $(CFLAGS) -I. -c $< -o $@
+all: $(NAME) $(BONUS)
 
-$(OBJDIR):
-		@mkdir -p $(OBJDIR) 2> /dev/null
+debug: $(NAME) $(BONUS)
 
-$(BONUSDIR)/%.o: $(BONUS_SRC_DIR)/%.c | $(BONUSDIR)
-		@$(CC) $(CFLAGS) -I. -c $< -o $@
+bonus: $(BONUS)
 
-$(BONUSDIR):
-		@mkdir -p $(BONUSDIR) 2> /dev/null
 
 ###	Create objects	###
 
@@ -98,6 +93,22 @@ SRC_BONUS = $(addprefix $(BONUS_SRC_DIR)/, $(SRCS_BONUS))
 
 OBJS_BONUS = $(addprefix $(BONUSDIR)/, $(OBJS_BONUS_NAME))
 
+
+###	Objects dir	###
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+		@$(CC) $(CFLAGS) -I. -c $< -o $@
+
+$(OBJDIR):
+		@mkdir -p $(OBJDIR) 2> /dev/null
+
+$(BONUSDIR)/%.o: $(BONUS_SRC_DIR)/%.c | $(BONUSDIR)
+		@$(CC) $(CFLAGS) -I. -c $< -o $@
+
+$(BONUSDIR):
+		@mkdir -p $(BONUSDIR) 2> /dev/null
+
+
 ###	Compile .o ###
 
 .o:.c
@@ -109,15 +120,10 @@ $(NAME): $(OBJS)
 $(BONUS): $(OBJS_BONUS)
 	$(CC) $(CFLAGS) -o $(BONUS) $(OBJS_BONUS)
 
-### Rules can be executed ###
+
+
 
 .PHONY: all clean fclean re bonus
-
-all: $(NAME) $(BONUS)
-
-debug: $(NAME)
-
-bonus: $(BONUS)
 
 clean:
 	rm -rf $(OBJDIR) $(BONUSDIR)
