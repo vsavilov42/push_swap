@@ -6,7 +6,7 @@
 #    By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 19:18:22 by vsavilov          #+#    #+#              #
-#    Updated: 2021/11/11 21:38:18 by vsavilov         ###   ########.fr        #
+#    Updated: 2021/11/15 12:22:58 by vsavilov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ SRCDIR = src
 
 OBJDIR = obj
 
-BONUS_SRC_DIR = checker
+BONUS_SRC_DIR = checker_src
 
 BONUSDIR = b_obj
 
@@ -67,7 +67,7 @@ BONUSDIR = b_obj
 
 NAME = push_swap
 
-BONUS = push_swap_checker
+BONUS = checker
 
 ###	Objects dir	###
 

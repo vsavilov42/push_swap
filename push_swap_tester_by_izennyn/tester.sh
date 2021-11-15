@@ -40,11 +40,11 @@ function invalid_args () {
 # Checkers
 function check () {
 	# Give permissions
-	chmod +x ./checkers/push_swap_checker 2> /dev/null
+	chmod +x ./checkers/checker_mac 2> /dev/null
 	chmod +x ./checkers/checker_linux 2> /dev/null
 
 	# Checker Mac
-	CHK_MAC=`cat $OP_FILE | ./checkers/push_swap_checker $ARG 2> /dev/null`
+	CHK_MAC=`cat $OP_FILE | ./checkers/checker_mac $ARG 2> /dev/null`
 	COL_MAC="$GRN"
 	if [ -z $CHK_MAC ]; then
 		CHK_MAC="N/A"
