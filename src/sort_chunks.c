@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 20:29:44 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/11 16:58:23 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/15 12:01:24 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_chunks_a_to_b(t_list **lst_a, t_list **lst_b, int m)
 			ck.chunksize += ck.halfchunk;
 		sort_chunks_rotate_list_a(lst_a, m, ck.tpa, ck.chunksize);
 		if ((*lst_a)->num < m - 5)
-			pb(lst_a, lst_b);
+			pb(lst_a, lst_b, 1);
 	}
 }
 
@@ -65,7 +65,7 @@ void	sort_chunks_b_to_a(t_list **lst_a, t_list **lst_b)
 			ck.check = b_to_a_rb(lst_a, lst_b, ck.num, ck.check);
 		else
 			ck.check = b_to_a_rrb(lst_a, lst_b, ck.num, ck.check);
-		pa(lst_a, lst_b);
+		pa(lst_a, lst_b, 1);
 		if (ck.check == 1)
 		{
 			sa(lst_a, 1);

@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:53:01 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/10 18:16:59 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/15 11:18:36 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort_five(t_list **lst_a, t_list **lst_b)
 	{
 		if ((*lst_a)->num == num[0] || (*lst_a)->num == num[1])
 		{
-			pb(lst_a, lst_b);
+			pb(lst_a, lst_b, 1);
 			numb--;
 		}
 		if (numb > 0)
@@ -50,8 +50,8 @@ void	sort_five(t_list **lst_a, t_list **lst_b)
 	if (ft_lstsize(*lst_a) == 3 && (*lst_b)->num < (*lst_b)->next->num)
 		sb(lst_b, 1);
 	sort_three(lst_a);
-	pa(lst_a, lst_b);
-	pa(lst_a, lst_b);
+	pa(lst_a, lst_b, 1);
+	pa(lst_a, lst_b, 1);
 	free(num);
 }
 
@@ -59,9 +59,9 @@ void	sort_four(t_list **lst_a, t_list **lst_b)
 {
 	while ((*lst_a)->num != 0)
 		ra(lst_a, 1);
-	pb(lst_a, lst_b);
+	pb(lst_a, lst_b, 1);
 	sort_three(lst_a);
-	pa(lst_a, lst_b);
+	pa(lst_a, lst_b, 1);
 }
 
 void	sort_three(t_list **lst)

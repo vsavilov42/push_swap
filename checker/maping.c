@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   maping.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 10:01:00 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/15 11:50:33 by vsavilov         ###   ########.fr       */
+/*   Created: 2021/11/10 18:23:00 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/10 18:24:40 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../include/push_swap.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <stdlib.h>
+int	*maping(int *n, int nnum)
+{
+	t_form	map;
+	int		num;
+	int		*aux;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
-char	*get_current_line(char **str);
-#endif
+	aux = malloc(sizeof(int) * (nnum + 1));
+	if (!aux)
+		return (NULL);
+	map.i = -1;
+	while (++map.i < nnum)
+	{
+		num = 0;
+		map.j = 0;
+		while (map.j < nnum)
+			if (n[map.i] > n[map.j++])
+				num++;
+		aux[map.i] = num;
+	}
+	map.i = -1;
+	aux[nnum] = -1;
+	free(n);
+	return (aux);
+}

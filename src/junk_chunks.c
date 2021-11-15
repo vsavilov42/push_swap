@@ -6,7 +6,7 @@
 /*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 20:00:05 by vsavilov          #+#    #+#             */
-/*   Updated: 2021/11/11 18:52:29 by vsavilov         ###   ########.fr       */
+/*   Updated: 2021/11/15 11:33:35 by vsavilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	b_to_a_rb(t_list **lst_a, t_list **lst_b, int num, int check)
 	{
 		if ((*lst_b)->num == num - 1)
 		{
-			pa(lst_a, lst_b);
+			pa(lst_a, lst_b, 1);
 			check = 1;
 		}
 		if ((*lst_b)->num == num)
@@ -34,7 +34,7 @@ int	b_to_a_rrb(t_list **lst_a, t_list **lst_b, int num, int check)
 	{
 		if ((*lst_b)->num == num - 1)
 		{
-			pa(lst_a, lst_b);
+			pa(lst_a, lst_b, 1);
 			check = 1;
 		}
 		if ((*lst_b)->num == num)

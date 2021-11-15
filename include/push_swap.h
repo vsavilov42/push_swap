@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/15 11:50:37 by vsavilov          #+#    #+#             */
+/*   Updated: 2021/11/15 11:53:01 by vsavilov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -8,33 +20,28 @@
 
 typedef struct s_form
 {
-	int i;
-	int j;
-	int k;
-	int l;
-	int nwords;
-	int *n;
-} t_form;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	nwords;
+	int	*n;
+}	t_form;
 
-typedef	struct s_chunks
+typedef struct s_chunks
 {
 	int	tpa;
-	int num;
-	int check;
-	int chunksize;
+	int	num;
+	int	check;
+	int	chunksize;
 	int	halfchunk;
-} t_chunk;
-
-typedef struct s_head
-{
-	void	*head_a;
-} t_head;
+}	t_chunk;
 
 typedef struct s_list
 {
 	int				num;
 	struct s_list	*next;
-} t_list;
+}	t_list;
 
 /*t_list->content=(contenido a meter)*/
 
@@ -47,7 +54,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 int		ft_strcmp(const char *s1, const char *s2);
-int		errormsg();
+int		errormsg(void);
 char	*stringerror(char *str);
 int		countword(char const *s, char c);
 char	**ft_split(char const *s, char c);
@@ -87,17 +94,17 @@ int		sorted(t_list **lst);
 
 //junk chunks functions
 
-int	b_to_a_rb(t_list **lst_a, t_list **lst_b, int num, int check);
-int	b_to_a_rrb(t_list **lst_a, t_list **lst_b, int num, int check);
-int where_is_num(t_list **lst, int num, int tpa);
+int		b_to_a_rb(t_list **lst_a, t_list **lst_b, int num, int check);
+int		b_to_a_rrb(t_list **lst_a, t_list **lst_b, int num, int check);
+int		where_is_num(t_list **lst, int num, int tpa);
 
 //move functions
 
 void	sa(t_list **lst, int check);
 void	sb(t_list **lst, int check);
 void	ss(t_list **lst_a, t_list **lst_b);
-void	pa(t_list **lst_a, t_list **lst_b);
-void	pb(t_list **lst_a, t_list **lst_b);
+void	pa(t_list **lst_a, t_list **lst_b, int check);
+void	pb(t_list **lst_a, t_list **lst_b, int check);
 void	ra(t_list **lst, int check);
 void	rb(t_list **lst, int check);
 void	rr(t_list **lst, t_list **lst_b);

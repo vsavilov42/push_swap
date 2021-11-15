@@ -6,7 +6,7 @@
 #    By: vsavilov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 19:18:22 by vsavilov          #+#    #+#              #
-#    Updated: 2021/11/11 21:31:17 by vsavilov         ###   ########.fr        #
+#    Updated: 2021/11/11 21:38:18 by vsavilov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,19 @@ SRCS_NAME = ft_list_functions.c \
 			sort_rules_s.c
 
 SRCS_BONUS = checker.c \
-			 get_next_line.c
+			get_next_line.c \
+			sort_rules_pa.c \
+			ft_list_functions.c \
+			maping.c \
+			ft_split.c \
+			isitsorted.c \
+			parse.c \
+			push_swap_error.c \
+			push_swap_utils.c \
+			push_swap_utils_2.c \
+			sort_rules_r.c \
+			sort_rules_rr.c \
+			sort_rules_s.c
 
 ###	Directories ###
 
@@ -101,17 +113,16 @@ $(BONUS): $(OBJS_BONUS)
 
 .PHONY: all clean fclean re bonus
 
-all: $(NAME)
-
+all: $(NAME) $(BONUS)
 
 debug: $(NAME)
 
 bonus: $(BONUS)
 
 clean:
-	rm -rf $(OBJDIR)
+	rm -rf $(OBJDIR) $(BONUSDIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(BONUS)
 
 re: fclean all
